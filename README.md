@@ -12,7 +12,9 @@ Please do not spend too much of your time on this! Ideally, this should take no 
 
 Your task is to create a browser extension that will automate the filling of basic inputs on a page.
 
-It should be built using TypeScript and React, and it should work in both Chrome and Firefox. Feel free to use any [browser extension starter kit](https://search.brave.com/search?q=browser+extension+starter+kit) of your choice.
+It should be built using TypeScript and React, and it should work in both Chrome and Firefox.
+
+We've included the `starter` directory to help you get up and running faster, but you're welcome to use any browser extension starter kit you're comfortable with. If you use the `starter` directory, feel free to make any changes you deem necessary, whether it's adding/removing packages, updating configs, etc.
 
 When the extension icon is clicked, open https://simplifyjobs.github.io/extension-take-home and render an interactive popup within the top frame. The popup should have:
 
@@ -49,6 +51,8 @@ If the user clicks the "Autofill" button while not on the page with the "Start" 
 
 ## Bonus Points
 
+You don't have to include this, but it's a huge plus if you do.
+
 Use a JSON data structure that can be configured to fill any similar type of form. For example:
 
 ```json
@@ -81,7 +85,7 @@ Use a JSON data structure that can be configured to fill any similar type of for
     ]
   ],
   [
-    "foo",
+    "bar",
     [
       {
         "path": ".//fieldset[@id=\"bar\"]//input[@type=\"text\"]",
