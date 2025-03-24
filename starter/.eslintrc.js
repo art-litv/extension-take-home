@@ -105,18 +105,6 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    'import/order': [
-      'error',
-      {
-        alphabetize: {
-          caseInsensitive: true,
-          order: 'asc',
-        },
-        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'],
-        'newlines-between': 'never',
-      },
-    ],
-    '@typescript-eslint/explicit-function-return-type': ['error'],
     'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.tsx'] }],
     'react/jsx-props-no-spreading': ['warn', { custom: 'ignore' }],
     'jsx-a11y/anchor-is-valid': 0,
@@ -133,7 +121,6 @@ module.exports = {
     'jsdoc/require-returns': 'off',
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': ['error'],
-    '@typescript-eslint/consistent-type-imports': ['error'],
     'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
   },
 };

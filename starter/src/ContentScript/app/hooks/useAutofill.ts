@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-
-import { createQueue, getQueueStatus } from 'ContentScript/app/utils/actions';
-import { FillStatus, QueuedElement } from 'ContentScript/types';
+import { createQueue, getQueueStatus } from '../utils/actions';
+import { FillStatus, QueuedElement } from '../../types';
 
 const useAutofill = () => {
   const [elementsQueue, setElementsQueue] = useState<QueuedElement[]>([]);
@@ -21,15 +20,24 @@ const useAutofill = () => {
 
         Still, to remain simplicity I'll leave this solution, it's satisfactory for the task.
     */
-    for (const item of elementsQueue) {
+    const processQueue = (index = 0) => {
+      if (index >= elementsQueue.length) return;
+
+      const item = elementsQueue[index];
+
       item.status = FillStatus.Filling;
       setElementsQueue([...elementsQueue]);
 
-      item.fill();
+      setTimeout(() => {
+        item.fill();
+        item.status = FillStatus.Filled;
+        setElementsQueue([...elementsQueue]);
 
-      item.status = FillStatus.Filled;
-      setElementsQueue([...elementsQueue]);
-    }
+        processQueue(index + 1);
+      }, 1500);
+    };
+
+    processQueue();
   };
 
   const status = getQueueStatus(elementsQueue);

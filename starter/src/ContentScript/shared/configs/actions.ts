@@ -34,8 +34,21 @@ const actionsConfig: ActionsConfig[] = [
       },
       {
         method: ElementMethod.Click,
-        value: 'Add',
-        path: './/fieldset[@id="foo"]//button',
+        path: '//li[contains(., "foo")]//input[@type="checkbox"]',
+      },
+    ],
+  },
+  {
+    name: 'Bar',
+    actions: [
+      {
+        method: ElementMethod.AddTodo,
+        value: 'bar',
+        path: '//input[@id="new-todo"]',
+      },
+      {
+        method: ElementMethod.Click,
+        path: '//li[contains(., "bar")]//input[@type="checkbox"]',
       },
     ],
   },

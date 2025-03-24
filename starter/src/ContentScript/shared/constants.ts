@@ -1,3 +1,6 @@
 export default {
-  TARGET_URL: 'https://simplifyjobs.github.io/extension-take-home',
+  TARGET_URLS: [
+    'https://simplifyjobs.github.io/extension-take-home/',
+    'https://todomvc.com/examples/jquery/dist/#/all',
+  ],
 };

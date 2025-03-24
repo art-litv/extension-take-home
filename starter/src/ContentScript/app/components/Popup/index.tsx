@@ -9,7 +9,7 @@ import useAutofill from '../../hooks/useAutofill';
 const Popup: React.FC = () => {
   const { elementsQueue, status, handleAutofill } = useAutofill();
 
-  const getButtonText = (status: FillStatus) => {
+  const getButtonText = () => {
     if (status === FillStatus.Filling) {
       return 'Filling...';
     }
@@ -25,12 +25,12 @@ const Popup: React.FC = () => {
         onClick={handleAutofill}
         disabled={status !== FillStatus.Unfilled || elementsQueue.length === 0}
       >
-        {getButtonText(status)}
+        {getButtonText()}
       </Styled.AutofillButton>
       <Styled.Status>Status: {status}</Styled.Status>
       <Styled.ElementsQueue>
-        {elementsQueue.map((item, index) => (
-          <Styled.ElementKey key={index}>
+        {elementsQueue.map((item) => (
+          <Styled.ElementKey key={item.name}>
             {item.name}: {item.status}
           </Styled.ElementKey>
         ))}
