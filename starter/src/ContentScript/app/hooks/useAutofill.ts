@@ -5,9 +5,29 @@ import { FillStatus, QueuedElement } from '../../types';
 const useAutofill = () => {
   const [elementsQueue, setElementsQueue] = useState<QueuedElement[]>([]);
 
-  useEffect(() => {
+  const status = getQueueStatus(elementsQueue);
+
+  const resetQueue = () => {
     setElementsQueue(createQueue());
+  };
+
+  useEffect(() => {
+    // Initial queue creation
+    resetQueue();
   }, []);
+
+  useEffect(() => {
+    if (status === FillStatus.Filled) {
+      // may make sense to move to config for better scalability
+      const clearButton = document.querySelector('.clear-completed');
+
+      clearButton?.addEventListener('click', resetQueue);
+
+      return () => {
+        clearButton?.removeEventListener('click', resetQueue);
+      };
+    }
+  }, [status]);
 
   const handleAutofill = () => {
     /*
@@ -40,9 +60,7 @@ const useAutofill = () => {
     processQueue();
   };
 
-  const status = getQueueStatus(elementsQueue);
-
-  return { elementsQueue, status, handleAutofill };
+  return { elementsQueue, status, handleAutofill, resetQueue };
 };
 
 export default useAutofill;

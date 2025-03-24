@@ -27,6 +27,7 @@ const Popup: React.FC = () => {
       >
         {getButtonText()}
       </Styled.AutofillButton>
+
       <Styled.Status>Status: {status}</Styled.Status>
       <Styled.ElementsQueue>
         {elementsQueue.map((item) => (

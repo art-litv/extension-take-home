@@ -119,6 +119,7 @@ module.exports = {
     ],
     'jsdoc/require-param': 'off',
     'jsdoc/require-returns': 'off',
+    'consistent-return': 'off',
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': ['error'],
     'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
